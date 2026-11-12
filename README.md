@@ -1,10 +1,11 @@
+
 # Automatic Lid
 
 A touchless box lid built with an Arduino UNO. Wave your hand within 30 cm of the ultrasonic sensor and a servo lifts the lid. Take your hand away and it closes again.
 
 ## Demo Version
 
-![Real circuit on a breadboard](circuit.jpg)
+https://github.com/user-attachments/assets/f4ae407e-b10f-45ec-87fc-b1219a7bda53
 
 **Wokwi simulation:** [open in Wokwi](https://wokwi.com/projects/480511927623989249)
 
@@ -15,11 +16,14 @@ A touchless box lid built with an Arduino UNO. Wave your hand within 30 cm of th
 2. The sensor holds its **Echo** pin HIGH for as long as the sound takes to travel to the object and back. `pulseIn()` measures that time in microseconds.
 
 3. The time is converted to distance. Sound travels at about 343 m/s, which is 0.0343 cm/µs, and the signal goes there and back, so:
+
+   ```
    distance [cm] = 0.0343 × time [µs] / 2
+   ```
 
-4. If something is between 0 and 30 cm away, the servo turns to 0° and opens the lid. Otherwise it goes back to 90°. Closed position is 90°, not 0°, because of how the servo is attached to the lid.
+4. If something is between 0 and 30 cm away, the servo turns to 0° and opens the lid. Otherwise it goes back to 90°. The closed position is 90°, not 0°, because of how the servo is attached to the lid.
 
-5. reading is printed to the Serial Monitor, which made testing and debugging much easier.
+5. Each reading is printed to the Serial Monitor, which made testing and debugging much easier.
 
 ## Hardware
 
