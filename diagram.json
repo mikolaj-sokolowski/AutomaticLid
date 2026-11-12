@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "author": "Mikołaj Sokołowski",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-servo", "id": "lid", "top": -190, "left": -60, "attrs": {} },
+    { "type": "wokwi-breadboard", "id": "bb1", "top": 260, "left": -330, "attrs": {} },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "sensor",
+      "top": 471.9,
+      "left": 303.1,
+      "attrs": { "distance": "100" }
+    }
+  ],
+  "connections": [
+    [ "uno:5V", "bb1:tp.40", "red", [] ],
+    [ "uno:GND.2", "bb1:tn.40", "black", [] ],
+    [ "lid:V+", "bb1:tp.20", "red", [] ],
+    [ "lid:GND", "bb1:tn.20", "black", [] ],
+    [ "lid:PWM", "uno:6", "blue", [] ],
+    [ "sensor:VCC", "bb1:tp.45", "red", [] ],
+    [ "sensor:GND", "bb1:tn.45", "black", [] ],
+    [ "sensor:TRIG", "uno:9", "white", [] ],
+    [ "sensor:ECHO", "uno:10", "white", [] ]
+  ],
+  "dependencies": {}
+}
